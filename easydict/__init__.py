@@ -139,7 +139,8 @@ class EasyDict(dict):
             setattr(self, k, d[k])
 
     def pop(self, k, d=None):
-        delattr(self, k)
+        if k in self:
+            delattr(self, k)
         return super(EasyDict, self).pop(k, d)
 
 
